@@ -228,62 +228,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Homebrew + iTerm2 + fish</title>
-    <url>/2018/03/16/Homebrew%20+%20iTerm2%20+%20fish/</url>
-    <content><![CDATA[<p>Homebrew是macOS下的软件包管理器。</p>
-<span id="more"></span>
-
-<p>Homebrew安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ /usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>Cakebrew安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew cask install cakebrew</span><br></pre></td></tr></table></figure>
-
-<p>Cask常用命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 查看帮助</span><br><span class="line">$ brew cask -<span class="built_in">help</span></span><br><span class="line">// 安装软件</span><br><span class="line">$ brew cask install &lt;software name&gt;</span><br><span class="line">// 卸载软件</span><br><span class="line">$ brew cask uninstall &lt;software name&gt;</span><br><span class="line">// 搜索软件</span><br><span class="line">$ brew cask search &lt;software name&gt;</span><br><span class="line">// 查看软件相关信息</span><br><span class="line">$ brew cask info &lt;software name&gt;</span><br><span class="line">// 列出通过 Homebrew-Cask 安装的包</span><br><span class="line">$ brew cask list</span><br></pre></td></tr></table></figure>
-<p>Brew装机</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 安装 Homebrew</span><br><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br><span class="line"></span><br><span class="line"># Homebrew-Cask</span><br><span class="line">brew tap caskroom/cask</span><br><span class="line"></span><br><span class="line"># 安装Cask基础软件</span><br><span class="line">brew cask install iterm2         #安装iTerm 2</span><br><span class="line">brew cask install visual-studio-code#微软出品的文本编辑器，可替代 Sublime Text</span><br><span class="line">brew cask install google-chrome  #安装Chrome</span><br><span class="line">brew cask install the-unarchiver #解压软件</span><br><span class="line">brew cask install alfred         #效率软件</span><br><span class="line">brew cask install qq             #腾讯QQ</span><br><span class="line">brew cask install sourcetree     #Git GUI 客户端</span><br><span class="line">brew cask install cheatsheet     # 显示当前程序的快捷键列表，默认的快捷键是长按⌘</span><br></pre></td></tr></table></figure>
-
-<p>Brew备份</p>
-<p>换电脑时:备份安装安装了哪些命令行，安装的时候用了什么选项。<br>homebrew为我们提供了非常方便的子命令：bundle</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew bundle dump</span><br></pre></td></tr></table></figure>
-<p>首次执行上面这条命令，将会自动tap homebrew&#x2F;bundle，然后将以往安装的命令以及安装的命令行选项保存在当前的路径下的Brewfile。用编辑器打开来看其实就是一个脚本包含了所有已经安装的命令行以及相应的选项。你要备份的文件就是这个Brewfile</p>
-<p>在全新的macOS上想要恢复的话，就使用该Brewfile.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew bundle</span><br></pre></td></tr></table></figure>
-<p>该命令会在当前文件夹下寻找Brewfile文件然后开始执行。</p>
-<p>更多关于bundle自命令的帮助请执行:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew <span class="built_in">help</span> bundle</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>Fish shell 安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew install fish</span><br></pre></td></tr></table></figure>
-
-<p>Fish shell 配置</p>
-<p>编辑&#x2F;etc&#x2F;shells文件，在文件底部添加下面一行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/local/bin/fish</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意：如果使用vim ，需要管理员的权限编辑，如下：</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/shells</span><br></pre></td></tr></table></figure>
-
-<p>shell 从 bash 切换到 fish </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chsh -s /usr/local/bin/fish</span><br></pre></td></tr></table></figure>
-
-<p>shell 从 fish 切换到 bash</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chsl -s /bin/bash</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>package manager</category>
-      </categories>
-      <tags>
-        <tag>brew</tag>
-        <tag>iTerm2</tag>
-        <tag>fish</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo 实战</title>
     <url>/2015/03/16/Hexo-%E5%AE%9E%E6%88%98/</url>
     <content><![CDATA[<ol>
@@ -452,6 +396,62 @@
       <tags>
         <tag>nvm</tag>
         <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Homebrew + iTerm2 + fish</title>
+    <url>/2018/03/16/Homebrew%20+%20iTerm2%20+%20fish/</url>
+    <content><![CDATA[<p>Homebrew是macOS下的软件包管理器。</p>
+<span id="more"></span>
+
+<p>Homebrew安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ /usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Cakebrew安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew cask install cakebrew</span><br></pre></td></tr></table></figure>
+
+<p>Cask常用命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 查看帮助</span><br><span class="line">$ brew cask -<span class="built_in">help</span></span><br><span class="line">// 安装软件</span><br><span class="line">$ brew cask install &lt;software name&gt;</span><br><span class="line">// 卸载软件</span><br><span class="line">$ brew cask uninstall &lt;software name&gt;</span><br><span class="line">// 搜索软件</span><br><span class="line">$ brew cask search &lt;software name&gt;</span><br><span class="line">// 查看软件相关信息</span><br><span class="line">$ brew cask info &lt;software name&gt;</span><br><span class="line">// 列出通过 Homebrew-Cask 安装的包</span><br><span class="line">$ brew cask list</span><br></pre></td></tr></table></figure>
+<p>Brew装机</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 安装 Homebrew</span><br><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br><span class="line"></span><br><span class="line"># Homebrew-Cask</span><br><span class="line">brew tap caskroom/cask</span><br><span class="line"></span><br><span class="line"># 安装Cask基础软件</span><br><span class="line">brew cask install iterm2         #安装iTerm 2</span><br><span class="line">brew cask install visual-studio-code#微软出品的文本编辑器，可替代 Sublime Text</span><br><span class="line">brew cask install google-chrome  #安装Chrome</span><br><span class="line">brew cask install the-unarchiver #解压软件</span><br><span class="line">brew cask install alfred         #效率软件</span><br><span class="line">brew cask install qq             #腾讯QQ</span><br><span class="line">brew cask install sourcetree     #Git GUI 客户端</span><br><span class="line">brew cask install cheatsheet     # 显示当前程序的快捷键列表，默认的快捷键是长按⌘</span><br></pre></td></tr></table></figure>
+
+<p>Brew备份</p>
+<p>换电脑时:备份安装安装了哪些命令行，安装的时候用了什么选项。<br>homebrew为我们提供了非常方便的子命令：bundle</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew bundle dump</span><br></pre></td></tr></table></figure>
+<p>首次执行上面这条命令，将会自动tap homebrew&#x2F;bundle，然后将以往安装的命令以及安装的命令行选项保存在当前的路径下的Brewfile。用编辑器打开来看其实就是一个脚本包含了所有已经安装的命令行以及相应的选项。你要备份的文件就是这个Brewfile</p>
+<p>在全新的macOS上想要恢复的话，就使用该Brewfile.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew bundle</span><br></pre></td></tr></table></figure>
+<p>该命令会在当前文件夹下寻找Brewfile文件然后开始执行。</p>
+<p>更多关于bundle自命令的帮助请执行:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew <span class="built_in">help</span> bundle</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Fish shell 安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ brew install fish</span><br></pre></td></tr></table></figure>
+
+<p>Fish shell 配置</p>
+<p>编辑&#x2F;etc&#x2F;shells文件，在文件底部添加下面一行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/local/bin/fish</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果使用vim ，需要管理员的权限编辑，如下：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/shells</span><br></pre></td></tr></table></figure>
+
+<p>shell 从 bash 切换到 fish </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chsh -s /usr/local/bin/fish</span><br></pre></td></tr></table></figure>
+
+<p>shell 从 fish 切换到 bash</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ chsl -s /bin/bash</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>package manager</category>
+      </categories>
+      <tags>
+        <tag>brew</tag>
+        <tag>iTerm2</tag>
+        <tag>fish</tag>
       </tags>
   </entry>
   <entry>
@@ -947,45 +947,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu服务器安装shadowsocks穿墙</title>
-    <url>/2018/03/02/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85shadowsocks%E7%A9%BF%E5%A2%99/</url>
-    <content><![CDATA[<ol>
-<li><p>需要一台服务器, Linux系统</p>
-<span id="more"></span>
-</li>
-<li><p>使用ssh连接到服务器</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh &lt;ip&gt; -p &lt;port&gt; </span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>ssh连接成功后安装shadowsocks多用户服务(脚手架献上)</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-go.sh </span><br><span class="line"><span class="built_in">chmod</span> +x shadowsocks-go.sh</span><br><span class="line">./shadowsocks-go.sh 2&gt;&amp;1 | <span class="built_in">tee</span> shadowsocks-go.log</span><br></pre></td></tr></table></figure>
-<p>成功后的样子</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Congratulations, shadowsocks-go install completed!</span><br><span class="line">Your Server IP:your_server_ip</span><br><span class="line">Your Server Port:your_server_port</span><br><span class="line">Your Password:your_password</span><br><span class="line">Your Local Port:1080</span><br><span class="line">Your Encryption Method:aes-256-cfb</span><br><span class="line">Welcome to visit:http://teddysun.com/392.html</span><br><span class="line">Enjoy it!</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>配置账号</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi /etc/shadowsocks/config.json</span><br></pre></td></tr></table></figure>
-<p>4.1 单账号配置</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span><span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;server_port&quot;</span><span class="punctuation">:</span><span class="number">8989</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span><span class="punctuation">:</span><span class="number">1080</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;method&quot;</span><span class="punctuation">:</span><span class="string">&quot;rc4-md5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;timeout&quot;</span><span class="punctuation">:</span><span class="number">300</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>4.2 多账号配置</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span><span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;port_password&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">         <span class="attr">&quot;8989&quot;</span><span class="punctuation">:</span><span class="string">&quot;password0&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;9001&quot;</span><span class="punctuation">:</span><span class="string">&quot;password1&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;9002&quot;</span><span class="punctuation">:</span><span class="string">&quot;password2&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;9003&quot;</span><span class="punctuation">:</span><span class="string">&quot;password3&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;9004&quot;</span><span class="punctuation">:</span><span class="string">&quot;password4&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;method&quot;</span><span class="punctuation">:</span><span class="string">&quot;aes-256-cfb&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;timeout&quot;</span><span class="punctuation">:</span><span class="number">600</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>shadowsocks服务的日常基操</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动：</span></span><br><span class="line">$ /etc/init.d/shadowsocks start</span><br><span class="line"><span class="comment"># 停止：</span></span><br><span class="line">$ /etc/init.d/shadowsocks stop</span><br><span class="line"><span class="comment"># 重启：</span></span><br><span class="line">$ /etc/init.d/shadowsocks restart</span><br><span class="line"><span class="comment"># 状态：</span></span><br><span class="line">$ /etc/init.d/shadowsocks status</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shadowsocks</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>UML-类图</title>
     <url>/2020/07/27/UML-%E7%B1%BB%E5%9B%BE/</url>
     <content><![CDATA[<p>在面对业务日趋复杂的趋势下, 下意识的编写代码可能会导致今后的灾难, 面对现状,我们需要去仔细的设计一些结构和关系, 这样才能对复杂业务应对自如. 少掉写头发.</p>
@@ -1058,6 +1019,120 @@
       </categories>
       <tags>
         <tag>UML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu服务器安装shadowsocks穿墙</title>
+    <url>/2018/03/02/Ubuntu%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85shadowsocks%E7%A9%BF%E5%A2%99/</url>
+    <content><![CDATA[<ol>
+<li><p>需要一台服务器, Linux系统</p>
+<span id="more"></span>
+</li>
+<li><p>使用ssh连接到服务器</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh &lt;ip&gt; -p &lt;port&gt; </span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>ssh连接成功后安装shadowsocks多用户服务(脚手架献上)</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-go.sh </span><br><span class="line"><span class="built_in">chmod</span> +x shadowsocks-go.sh</span><br><span class="line">./shadowsocks-go.sh 2&gt;&amp;1 | <span class="built_in">tee</span> shadowsocks-go.log</span><br></pre></td></tr></table></figure>
+<p>成功后的样子</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Congratulations, shadowsocks-go install completed!</span><br><span class="line">Your Server IP:your_server_ip</span><br><span class="line">Your Server Port:your_server_port</span><br><span class="line">Your Password:your_password</span><br><span class="line">Your Local Port:1080</span><br><span class="line">Your Encryption Method:aes-256-cfb</span><br><span class="line">Welcome to visit:http://teddysun.com/392.html</span><br><span class="line">Enjoy it!</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>配置账号</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vi /etc/shadowsocks/config.json</span><br></pre></td></tr></table></figure>
+<p>4.1 单账号配置</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span><span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;server_port&quot;</span><span class="punctuation">:</span><span class="number">8989</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;local_port&quot;</span><span class="punctuation">:</span><span class="number">1080</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span><span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;method&quot;</span><span class="punctuation">:</span><span class="string">&quot;rc4-md5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;timeout&quot;</span><span class="punctuation">:</span><span class="number">300</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>4.2 多账号配置</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span><span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;port_password&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">         <span class="attr">&quot;8989&quot;</span><span class="punctuation">:</span><span class="string">&quot;password0&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;9001&quot;</span><span class="punctuation">:</span><span class="string">&quot;password1&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;9002&quot;</span><span class="punctuation">:</span><span class="string">&quot;password2&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;9003&quot;</span><span class="punctuation">:</span><span class="string">&quot;password3&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;9004&quot;</span><span class="punctuation">:</span><span class="string">&quot;password4&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;method&quot;</span><span class="punctuation">:</span><span class="string">&quot;aes-256-cfb&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;timeout&quot;</span><span class="punctuation">:</span><span class="number">600</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>shadowsocks服务的日常基操</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动：</span></span><br><span class="line">$ /etc/init.d/shadowsocks start</span><br><span class="line"><span class="comment"># 停止：</span></span><br><span class="line">$ /etc/init.d/shadowsocks stop</span><br><span class="line"><span class="comment"># 重启：</span></span><br><span class="line">$ /etc/init.d/shadowsocks restart</span><br><span class="line"><span class="comment"># 状态：</span></span><br><span class="line">$ /etc/init.d/shadowsocks status</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shadowsocks</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mac下rvm的安装和常用指令</title>
+    <url>/2017/03/25/mac%E4%B8%8Brvm%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>为什么要安装rvm</p>
+<ul>
+<li>mac OS 自带的ruby环境, 权限有限</li>
+<li>使用自带的ruby更新,管理不方便</li>
+</ul>
+<p>检查系统正在使用的ruby</p>
+<span id="more"></span>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">which</span> ruby</span></span><br></pre></td></tr></table></figure>
+
+<p>如果是系统自带的,将回应:<code>user/bin/ruby</code></p>
+<p>检查系统所用ruby版本:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ruby -v</span></span><br></pre></td></tr></table></figure>
+
+<p>安装RVM </p>
+<ol>
+<li>参考<br><a href="https://rvm.io/rvm/install">https://rvm.io/rvm/install</a></li>
+<li>先安装gunpg</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install gnupg</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装mpapis公钥(失败参考<code>https://rvm.io/rvm/install</code>安装)</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>安装最新版本的ruby的rvm</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">\curl -sSL https://get.rvm.io | bash -s stable --ruby</span></span><br></pre></td></tr></table></figure>
+
+<p>使用RVM</p>
+<ol>
+<li><p>列出RVM 使用的ruby版本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm <span class="built_in">ls</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择使用的ruby版本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm use &lt;verison&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查系统所用ruby版本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">which</span> ruby</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设定默认的node版本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nvm <span class="built_in">alias</span> default v8.5.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前使用的node版本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nvm current</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除指定版本的node</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nvm uninstall v9.5.0</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>常用指令<br>RVM </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ruby -v <span class="comment"># 查看ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm list known <span class="comment"># 列出已知的 ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm install 2.3.0 <span class="comment"># 选择指定 ruby 版本进行更新</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm get stable <span class="comment"># 更新 rvm</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm use 2.2.2 <span class="comment"># 切换到指定 ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm use 2.2.2 --default <span class="comment"># 设置指定 ruby 版本为默认版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm list <span class="comment"># 查询已安装的 ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm remove 1.9.2 <span class="comment"># 卸载移除 指定 ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -L https://get.rvm.io | bash -s stable <span class="comment"># 安装 rvm 环境</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -sSL https://get.rvm.io | bash -s stable --ruby <span class="comment"># 默认安装 rvm 最新版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.0 <span class="comment"># 安装 rvm 指定版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> ~/.rvm/scripts/rvm <span class="comment"># 载入 rvm</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Gem</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem -v <span class="comment"># 查看 gem 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">source</span> <span class="comment"># 查看 gem 配置源</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">source</span> -l <span class="comment"># 查看 gem 配置源目录</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem sources -a url <span class="comment"># 添加 gem 配置源（url 需换成网址）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem sources --add url <span class="comment"># 添加 gem 配置源（url 需换成网址）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem sources -r url <span class="comment"># 删除 gem 配置源（url 需换成网址）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem sources --remove url <span class="comment"># 删除 gem 配置源（url 需换成网址）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem update <span class="comment"># 更新 所有包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem update --system <span class="comment"># 更新 Ruby Gems 软件</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem install rake <span class="comment"># 安装 rake，从本地或远程服务器</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem install rake --remote <span class="comment"># 安装 rake，从远程服务器</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem install watir -v 1.6.2 <span class="comment"># 安装 指定版本的 watir</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem install watir --version 1.6.2 <span class="comment"># 安装 指定版本的 watir</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem uninstall rake <span class="comment"># 卸载 rake 包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem list d <span class="comment"># 列出 本地以 d 打头的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem query -n <span class="string">&#x27;&#x27;</span>[0-9]<span class="string">&#x27;&#x27;</span> --<span class="built_in">local</span> <span class="comment"># 查找 本地含有数字的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem search <span class="built_in">log</span> --both <span class="comment"># 查找 从本地和远程服务器上查找含有 log 字符串的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem search <span class="built_in">log</span> --remoter <span class="comment"># 查找 只从远程服务器上查找含有 log 字符串的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem search -r <span class="built_in">log</span> <span class="comment"># 查找 只从远程服务器上查找含有log字符串的包</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">help</span> <span class="comment"># 提醒式的帮助</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">help</span> install <span class="comment"># 列出 install 命令 帮助</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">help</span> examples <span class="comment"># 列出 gem 命令使用一些例子</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem build rake.gemspec <span class="comment"># 把 rake.gemspec 编译成 rake.gem</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem check -v pkg/rake-0.4.0.gem <span class="comment"># 检测 rake 是否有效</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem cleanup <span class="comment"># 清除 所有包旧版本，保留最新版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem contents rake <span class="comment"># 显示 rake 包中所包含的文件</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem dependency rails -v 0.10.1 <span class="comment"># 列出 与 rails 相互依赖的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem environment <span class="comment"># 查看 gem 的环境</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem -v <span class="comment"># 查看 gem 版本（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem install cocoa pods <span class="comment"># 安装 CocoaPods（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem install cocoapods <span class="comment"># 安装 CocoaPods（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem install cocoapods --pre <span class="comment"># 安装 CocoaPods 至预览版（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem install cocoapods -v 0.39.0 <span class="comment"># 安装 CocoaPods 指定版本（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem update cocoapods <span class="comment"># 更新 CocoaPods 至最新版（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem update cocoapods --pre <span class="comment"># 更新 CocoaPods 至预览版（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem uninstall cocoapods -v 0.39.0 <span class="comment"># 移除 CocoaPods 指定版本（以管理员权限）</span></span></span><br></pre></td></tr></table></figure>
+
+<p>pod</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pod setup <span class="comment"># CocoaPods 将信息下载到~/.cocoapods/repos 目录下。如果安装 CocoaPods 时不执行此命令，在初次执行 pod intall 命令时，系统也会自动执行该指令</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pod --version <span class="comment"># 检查 CocoaPods 是否安装成功及其版本号</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pod install <span class="comment"># 安装 CocoaPods 的配置文件 Podfile</span></span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>摘自网络, 总结于此</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>package manager</category>
+      </categories>
+      <tags>
+        <tag>rvm</tag>
+        <tag>ruby</tag>
       </tags>
   </entry>
   <entry>
@@ -1140,81 +1215,6 @@
       </tags>
   </entry>
   <entry>
-    <title>mac下rvm的安装和常用指令</title>
-    <url>/2017/03/25/mac%E4%B8%8Brvm%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<p>为什么要安装rvm</p>
-<ul>
-<li>mac OS 自带的ruby环境, 权限有限</li>
-<li>使用自带的ruby更新,管理不方便</li>
-</ul>
-<p>检查系统正在使用的ruby</p>
-<span id="more"></span>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">which</span> ruby</span></span><br></pre></td></tr></table></figure>
-
-<p>如果是系统自带的,将回应:<code>user/bin/ruby</code></p>
-<p>检查系统所用ruby版本:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ruby -v</span></span><br></pre></td></tr></table></figure>
-
-<p>安装RVM </p>
-<ol>
-<li>参考<br><a href="https://rvm.io/rvm/install">https://rvm.io/rvm/install</a></li>
-<li>先安装gunpg</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install gnupg</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>安装mpapis公钥(失败参考<code>https://rvm.io/rvm/install</code>安装)</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>安装最新版本的ruby的rvm</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">\curl -sSL https://get.rvm.io | bash -s stable --ruby</span></span><br></pre></td></tr></table></figure>
-
-<p>使用RVM</p>
-<ol>
-<li><p>列出RVM 使用的ruby版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm <span class="built_in">ls</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>选择使用的ruby版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm use &lt;verison&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查系统所用ruby版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">which</span> ruby</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设定默认的node版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nvm <span class="built_in">alias</span> default v8.5.0</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看当前使用的node版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nvm current</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除指定版本的node</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nvm uninstall v9.5.0</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>常用指令<br>RVM </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ruby -v <span class="comment"># 查看ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm list known <span class="comment"># 列出已知的 ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm install 2.3.0 <span class="comment"># 选择指定 ruby 版本进行更新</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm get stable <span class="comment"># 更新 rvm</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm use 2.2.2 <span class="comment"># 切换到指定 ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm use 2.2.2 --default <span class="comment"># 设置指定 ruby 版本为默认版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm list <span class="comment"># 查询已安装的 ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rvm remove 1.9.2 <span class="comment"># 卸载移除 指定 ruby 版本</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -L https://get.rvm.io | bash -s stable <span class="comment"># 安装 rvm 环境</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -sSL https://get.rvm.io | bash -s stable --ruby <span class="comment"># 默认安装 rvm 最新版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.0 <span class="comment"># 安装 rvm 指定版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">source</span> ~/.rvm/scripts/rvm <span class="comment"># 载入 rvm</span></span></span><br></pre></td></tr></table></figure>
-
-<p>Gem</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem -v <span class="comment"># 查看 gem 版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">source</span> <span class="comment"># 查看 gem 配置源</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">source</span> -l <span class="comment"># 查看 gem 配置源目录</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem sources -a url <span class="comment"># 添加 gem 配置源（url 需换成网址）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem sources --add url <span class="comment"># 添加 gem 配置源（url 需换成网址）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem sources -r url <span class="comment"># 删除 gem 配置源（url 需换成网址）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem sources --remove url <span class="comment"># 删除 gem 配置源（url 需换成网址）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem update <span class="comment"># 更新 所有包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem update --system <span class="comment"># 更新 Ruby Gems 软件</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem install rake <span class="comment"># 安装 rake，从本地或远程服务器</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem install rake --remote <span class="comment"># 安装 rake，从远程服务器</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem install watir -v 1.6.2 <span class="comment"># 安装 指定版本的 watir</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem install watir --version 1.6.2 <span class="comment"># 安装 指定版本的 watir</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem uninstall rake <span class="comment"># 卸载 rake 包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem list d <span class="comment"># 列出 本地以 d 打头的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem query -n <span class="string">&#x27;&#x27;</span>[0-9]<span class="string">&#x27;&#x27;</span> --<span class="built_in">local</span> <span class="comment"># 查找 本地含有数字的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem search <span class="built_in">log</span> --both <span class="comment"># 查找 从本地和远程服务器上查找含有 log 字符串的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem search <span class="built_in">log</span> --remoter <span class="comment"># 查找 只从远程服务器上查找含有 log 字符串的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem search -r <span class="built_in">log</span> <span class="comment"># 查找 只从远程服务器上查找含有log字符串的包</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">help</span> <span class="comment"># 提醒式的帮助</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">help</span> install <span class="comment"># 列出 install 命令 帮助</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem <span class="built_in">help</span> examples <span class="comment"># 列出 gem 命令使用一些例子</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem build rake.gemspec <span class="comment"># 把 rake.gemspec 编译成 rake.gem</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem check -v pkg/rake-0.4.0.gem <span class="comment"># 检测 rake 是否有效</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem cleanup <span class="comment"># 清除 所有包旧版本，保留最新版本</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem contents rake <span class="comment"># 显示 rake 包中所包含的文件</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem dependency rails -v 0.10.1 <span class="comment"># 列出 与 rails 相互依赖的包</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gem environment <span class="comment"># 查看 gem 的环境</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem -v <span class="comment"># 查看 gem 版本（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem install cocoa pods <span class="comment"># 安装 CocoaPods（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem install cocoapods <span class="comment"># 安装 CocoaPods（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem install cocoapods --pre <span class="comment"># 安装 CocoaPods 至预览版（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem install cocoapods -v 0.39.0 <span class="comment"># 安装 CocoaPods 指定版本（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem update cocoapods <span class="comment"># 更新 CocoaPods 至最新版（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem update cocoapods --pre <span class="comment"># 更新 CocoaPods 至预览版（以管理员权限）</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo gem uninstall cocoapods -v 0.39.0 <span class="comment"># 移除 CocoaPods 指定版本（以管理员权限）</span></span></span><br></pre></td></tr></table></figure>
-
-<p>pod</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pod setup <span class="comment"># CocoaPods 将信息下载到~/.cocoapods/repos 目录下。如果安装 CocoaPods 时不执行此命令，在初次执行 pod intall 命令时，系统也会自动执行该指令</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pod --version <span class="comment"># 检查 CocoaPods 是否安装成功及其版本号</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pod install <span class="comment"># 安装 CocoaPods 的配置文件 Podfile</span></span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>摘自网络, 总结于此</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>package manager</category>
-      </categories>
-      <tags>
-        <tag>rvm</tag>
-        <tag>ruby</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二叉树遍历</title>
     <url>/2015/10/11/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</url>
     <content><![CDATA[<p>本文讲述二叉树遍历的方式, 分别分为前序、中序、后序, 其中每种采用递归和非递归的方式实现.</p>
@@ -1275,54 +1275,6 @@
       <tags>
         <tag>brew</tag>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用命令之Gitlow</title>
-    <url>/2016/03/18/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B9%8BGitFlow/</url>
-    <content><![CDATA[<p>本文总结了git在工作中的一种成熟范式-git-flow, 对git-flow常规命令做了总结.</p>
-<span id="more"></span>
-
-<h4 id="git-flow-命令清单"><a href="#git-flow-命令清单" class="headerlink" title="git-flow 命令清单"></a>git-flow 命令清单</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># git-flow 安装</span></span><br><span class="line">$ brew install git-flow-avh</span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">$ git flow init</span><br><span class="line"><span class="comment"># 增加新功能</span></span><br><span class="line">$ git flow feature start &lt;功能名称&gt;</span><br><span class="line"><span class="comment"># 完成功能</span></span><br><span class="line">$ git flow feature finish &lt;功能名称&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布新特性(推送到远端)</span></span><br><span class="line">$ git flow feature publish &lt;功能名称&gt;</span><br><span class="line"><span class="comment"># 取一只发布的功能分支</span></span><br><span class="line">$ git flow feature pull origin &lt;功能名称&gt;</span><br><span class="line"><span class="comment"># 跟踪远端的功能分支</span></span><br><span class="line">$ git flow feature track &lt;功能名称&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备发布release版本</span></span><br><span class="line">$ git flow release start &lt;release_name&gt; [BASE]</span><br><span class="line"><span class="comment"># 推送到远端</span></span><br><span class="line">$ git flow release publish &lt;release_name&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>可以选择提供一个 <code>[BASE]</code>参数，即提交记录的 sha-1 hash 值，来开启动 release 分支. 这个提交记录的 sha-1 hash 值必须是’develop’ 分支下的**</p>
-</blockquote>
-<ul>
-<li>完成release的操作<ul>
-<li>merge release分支到master</li>
-<li>使用release分支名打Tag</li>
-<li>merge release分支到develop</li>
-<li>移除release分支</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git flow release finish &lt;release_name&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>紧急修复</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git flow hotfix start &lt;hotfix_name&gt; [BASENAME]</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>hotfix_name 参数标记着修正版本。你可以从 [BASENAME]开始，[BASENAME]为finish release时填写的版本号</p>
-</blockquote>
-<ul>
-<li>完成紧急修复<ul>
-<li>merge hotfix分支到master</li>
-<li>使用hotfix分支名打Tag</li>
-<li>merge hotfix分支到develop</li>
-<li>移除hotfix分支</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git flow hotfix finish &lt;hotfix_name&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -1446,6 +1398,54 @@
       </tags>
   </entry>
   <entry>
+    <title>常用命令之Gitlow</title>
+    <url>/2016/03/18/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B9%8BGitFlow/</url>
+    <content><![CDATA[<p>本文总结了git在工作中的一种成熟范式-git-flow, 对git-flow常规命令做了总结.</p>
+<span id="more"></span>
+
+<h4 id="git-flow-命令清单"><a href="#git-flow-命令清单" class="headerlink" title="git-flow 命令清单"></a>git-flow 命令清单</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># git-flow 安装</span></span><br><span class="line">$ brew install git-flow-avh</span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">$ git flow init</span><br><span class="line"><span class="comment"># 增加新功能</span></span><br><span class="line">$ git flow feature start &lt;功能名称&gt;</span><br><span class="line"><span class="comment"># 完成功能</span></span><br><span class="line">$ git flow feature finish &lt;功能名称&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布新特性(推送到远端)</span></span><br><span class="line">$ git flow feature publish &lt;功能名称&gt;</span><br><span class="line"><span class="comment"># 取一只发布的功能分支</span></span><br><span class="line">$ git flow feature pull origin &lt;功能名称&gt;</span><br><span class="line"><span class="comment"># 跟踪远端的功能分支</span></span><br><span class="line">$ git flow feature track &lt;功能名称&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备发布release版本</span></span><br><span class="line">$ git flow release start &lt;release_name&gt; [BASE]</span><br><span class="line"><span class="comment"># 推送到远端</span></span><br><span class="line">$ git flow release publish &lt;release_name&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可以选择提供一个 <code>[BASE]</code>参数，即提交记录的 sha-1 hash 值，来开启动 release 分支. 这个提交记录的 sha-1 hash 值必须是’develop’ 分支下的**</p>
+</blockquote>
+<ul>
+<li>完成release的操作<ul>
+<li>merge release分支到master</li>
+<li>使用release分支名打Tag</li>
+<li>merge release分支到develop</li>
+<li>移除release分支</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git flow release finish &lt;release_name&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>紧急修复</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git flow hotfix start &lt;hotfix_name&gt; [BASENAME]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>hotfix_name 参数标记着修正版本。你可以从 [BASENAME]开始，[BASENAME]为finish release时填写的版本号</p>
+</blockquote>
+<ul>
+<li>完成紧急修复<ul>
+<li>merge hotfix分支到master</li>
+<li>使用hotfix分支名打Tag</li>
+<li>merge hotfix分支到develop</li>
+<li>移除hotfix分支</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git flow hotfix finish &lt;hotfix_name&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用的LLDB指令</title>
     <url>/2016/07/26/%E5%B8%B8%E7%94%A8%E7%9A%84LLDB%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<p>本文总结了在日常开发过程中的常用的LLDB指令，记到这里，方便查阅。</p>
@@ -1507,23 +1507,6 @@
 <h4 id="0x03-选择排序"><a href="#0x03-选择排序" class="headerlink" title="0x03. 选择排序"></a>0x03. 选择排序</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SelectSort</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> a[] = &#123;<span class="number">13</span>, <span class="number">15</span>, <span class="number">89</span>, <span class="number">60</span>, <span class="number">39</span>, <span class="number">12</span>, <span class="number">109</span>, <span class="number">56</span>, <span class="number">72</span>&#125;;</span><br><span class="line">        <span class="type">int</span> i;</span><br><span class="line">        <span class="type">int</span> j;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">            System.out.print(a[i] + <span class="string">&quot;  &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> a[i];</span><br><span class="line">            <span class="keyword">for</span> (j = i+<span class="number">1</span>; j &lt; a.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(min &gt; a[j]) &#123;</span><br><span class="line">                    min = a[j];</span><br><span class="line">                    a[j] = a[i];</span><br><span class="line">                    a[i] = min;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            a[i] = min;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">            System.out.print(a[i]+<span class="string">&quot;  &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="0x04-堆排序"><a href="#0x04-堆排序" class="headerlink" title="0x04.堆排序"></a>0x04.堆排序</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HeapSort</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] arr = &#123;<span class="number">9</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">8</span>&#125;;</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">        sort(arr);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sort</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">        <span class="comment">// 1.构造一个大顶堆</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> arr.length/<span class="number">2</span>-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            adjustHeap(arr, i, arr.length);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 2.调整对结构+交换对顶元素与末尾元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> arr.length-<span class="number">1</span>; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            swap(arr,<span class="number">0</span>,j);</span><br><span class="line">            adjustHeap(arr,<span class="number">0</span>,j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">adjustHeap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> length)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">2</span>*i+<span class="number">1</span>; k &lt; length; k=k*<span class="number">2</span>+<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(k+<span class="number">1</span> &lt; length &amp;&amp; arr[k] &lt; arr[k+<span class="number">1</span>]) &#123;</span><br><span class="line">                k++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(arr[k] &gt; temp) &#123;</span><br><span class="line">                arr[i] = arr[k];</span><br><span class="line">                i = k;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[a];</span><br><span class="line">        arr[a] = arr[b];</span><br><span class="line">        arr[b] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>查找算法</title>
-    <url>/2015/10/26/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>本文使用java语法实现了对查找算法的表述,采用递归和非递归两种方式.</p>
-<span id="more"></span>
-
-<p>####0x01.二分查找法</p>
-<h5 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">binarySearchRecursive</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">binarySearchRecursive</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> hkey)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (start &gt; end) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> start + (end - start)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(arr[mid] &gt; hkey)&#123;</span><br><span class="line">            <span class="keyword">return</span> binarySearchRecursive(arr, start, mid-<span class="number">1</span>,hkey);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] &lt; hkey)&#123;</span><br><span class="line">            <span class="keyword">return</span> binarySearchRecursive(arr, mid+<span class="number">1</span>, end,hkey);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>&#125;;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> binarySearchRecursive(arr,<span class="number">0</span>,arr.length-<span class="number">1</span>,<span class="number">4</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;result = &quot;</span> + result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>#####非递归</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">binarySearchNoneRecursive</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>&#125;;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> binarySearch(arr, <span class="number">0</span>, arr.length, <span class="number">7</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;result = &quot;</span> + result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">binarySearch</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> hkey)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (start &lt;= end)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> start + (end - start)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; hkey)&#123;</span><br><span class="line">                end = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &lt; hkey) &#123;</span><br><span class="line">                start = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                result = mid;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -1628,6 +1611,23 @@
       </tags>
   </entry>
   <entry>
+    <title>查找算法</title>
+    <url>/2015/10/26/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>本文使用java语法实现了对查找算法的表述,采用递归和非递归两种方式.</p>
+<span id="more"></span>
+
+<p>####0x01.二分查找法</p>
+<h5 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">binarySearchRecursive</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">binarySearchRecursive</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> hkey)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (start &gt; end) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> start + (end - start)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(arr[mid] &gt; hkey)&#123;</span><br><span class="line">            <span class="keyword">return</span> binarySearchRecursive(arr, start, mid-<span class="number">1</span>,hkey);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (arr[mid] &lt; hkey)&#123;</span><br><span class="line">            <span class="keyword">return</span> binarySearchRecursive(arr, mid+<span class="number">1</span>, end,hkey);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>&#125;;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> binarySearchRecursive(arr,<span class="number">0</span>,arr.length-<span class="number">1</span>,<span class="number">4</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;result = &quot;</span> + result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>#####非递归</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">binarySearchNoneRecursive</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="type">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>&#125;;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> binarySearch(arr, <span class="number">0</span>, arr.length, <span class="number">7</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;result = &quot;</span> + result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">binarySearch</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> hkey)</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (start &lt;= end)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> start + (end - start)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (arr[mid] &gt; hkey)&#123;</span><br><span class="line">                end = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &lt; hkey) &#123;</span><br><span class="line">                start = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                result = mid;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title>设计模式-中介者模式</title>
     <url>/2018/04/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p>定义:<br>用一个中介对象（中介者）来封装一系列的对象交互，中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。中介者模式又称为调停者模式，它是一种对象行为型模式。</p>
@@ -1705,42 +1705,6 @@
       </tags>
   </entry>
   <entry>
-    <title>设计模式-命令模式</title>
-    <url>/2018/04/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<p>定义: 把一个请求封装为一个对象,从而让我们可用不同的请求对客户端进行参数化;以及支持可撤销的操作.将发出命令的责任和执行命令的责任分割.</p>
-<span id="more"></span>
-
-<p>实例:<br>例如:遥控器是一个调用者,不同的按钮代表不同的命令,而电视是接受者.</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 命令</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Command</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) SEL sel;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSObject</span> *target;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)execute;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Command</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)execute</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span>.target perfromSelector:_sel withObject:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 调用者</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Controller</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行命令</span></span><br><span class="line">- (<span class="type">void</span>)invokeCommand:(Command *)command;</span><br><span class="line"><span class="comment">// 取消命令</span></span><br><span class="line">- (<span class="type">void</span>)cancelCommand:(Command *)command;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Controller</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)invokeCommand:(Command *)command</span><br><span class="line">&#123;</span><br><span class="line">    [command excute];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)cancelCommand:(Command *)command</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 电视机</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TV</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)turnOn;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)turnOff;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TV</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)turnOn</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;打开电视机&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)turnOff</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;关闭电视机&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">TV *tv = [TV new];</span><br><span class="line"></span><br><span class="line">Command *one = [Command new];</span><br><span class="line">one.sel = <span class="keyword">@selector</span>(turnOn):</span><br><span class="line">one.target = tv;</span><br><span class="line"></span><br><span class="line">Command *two = [Command new];</span><br><span class="line">two.sel = <span class="keyword">@selector</span>(turnOn):</span><br><span class="line">two.target = tv;</span><br><span class="line"></span><br><span class="line">Controller *controller = [Controller new];</span><br><span class="line"></span><br><span class="line">[controller invokCommand:one];</span><br><span class="line">[controller invokCommand:two];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>类图:(这里的图和实现有些差别, 实现上通过Target-Action对具体类进行了简化), 完整类图如下:</p>
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghltd08oq2j30ji0c3weh.jpg">
-
-<p>优点:</p>
-<ul>
-<li>降低系统的耦合度。</li>
-<li>新的命令可以很容易地加入到系统中。</li>
-<li>以比较容易地设计一个命令队列和宏命令（组合命令）。</li>
-</ul>
-<p>缺点:</p>
-<ul>
-<li>使用命令模式可能会导致某些系统有过多的具体命令类。因为针对每一个命令都需要设计一个具体命令类，因此某些系统可能需要大量具体命令类，这将影响命令模式的使用。</li>
-</ul>
-<p>总结:<br>命令模式的组合使用,可以将复杂的业务进行逐个的拆分</p>
-]]></content>
-      <categories>
-        <category>Design Patterns</category>
-      </categories>
-      <tags>
-        <tag>Design Patterns</tag>
-        <tag>Behavioral Pattern</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>设计模式-工厂方法模式</title>
     <url>/2018/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<p>工厂方法模式,工厂的父类负责定义创建产品对象的公共接口,而工厂子类则负责生成具体的产品对象,即通过不同的工厂子类创建不同的产品对象.</p>
@@ -1784,6 +1748,42 @@
         <tag>Objective-C</tag>
         <tag>Design Patterns</tag>
         <tag>Creational Pattern</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式-命令模式</title>
+    <url>/2018/04/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<p>定义: 把一个请求封装为一个对象,从而让我们可用不同的请求对客户端进行参数化;以及支持可撤销的操作.将发出命令的责任和执行命令的责任分割.</p>
+<span id="more"></span>
+
+<p>实例:<br>例如:遥控器是一个调用者,不同的按钮代表不同的命令,而电视是接受者.</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 命令</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Command</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) SEL sel;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSObject</span> *target;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)execute;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Command</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)execute</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span>.target perfromSelector:_sel withObject:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 调用者</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Controller</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行命令</span></span><br><span class="line">- (<span class="type">void</span>)invokeCommand:(Command *)command;</span><br><span class="line"><span class="comment">// 取消命令</span></span><br><span class="line">- (<span class="type">void</span>)cancelCommand:(Command *)command;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Controller</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)invokeCommand:(Command *)command</span><br><span class="line">&#123;</span><br><span class="line">    [command excute];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)cancelCommand:(Command *)command</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 电视机</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TV</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)turnOn;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)turnOff;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TV</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)turnOn</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;打开电视机&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)turnOff</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;关闭电视机&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">TV *tv = [TV new];</span><br><span class="line"></span><br><span class="line">Command *one = [Command new];</span><br><span class="line">one.sel = <span class="keyword">@selector</span>(turnOn):</span><br><span class="line">one.target = tv;</span><br><span class="line"></span><br><span class="line">Command *two = [Command new];</span><br><span class="line">two.sel = <span class="keyword">@selector</span>(turnOn):</span><br><span class="line">two.target = tv;</span><br><span class="line"></span><br><span class="line">Controller *controller = [Controller new];</span><br><span class="line"></span><br><span class="line">[controller invokCommand:one];</span><br><span class="line">[controller invokCommand:two];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>类图:(这里的图和实现有些差别, 实现上通过Target-Action对具体类进行了简化), 完整类图如下:</p>
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghltd08oq2j30ji0c3weh.jpg">
+
+<p>优点:</p>
+<ul>
+<li>降低系统的耦合度。</li>
+<li>新的命令可以很容易地加入到系统中。</li>
+<li>以比较容易地设计一个命令队列和宏命令（组合命令）。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>使用命令模式可能会导致某些系统有过多的具体命令类。因为针对每一个命令都需要设计一个具体命令类，因此某些系统可能需要大量具体命令类，这将影响命令模式的使用。</li>
+</ul>
+<p>总结:<br>命令模式的组合使用,可以将复杂的业务进行逐个的拆分</p>
+]]></content>
+      <categories>
+        <category>Design Patterns</category>
+      </categories>
+      <tags>
+        <tag>Design Patterns</tag>
+        <tag>Behavioral Pattern</tag>
       </tags>
   </entry>
   <entry>
@@ -2540,13 +2540,13 @@
 润色中...]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>标签</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>标签</title>
-    <url>/tags/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
