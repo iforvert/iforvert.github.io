@@ -1,97 +1,83 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
   
-
-  
   <title>SQLite备忘录-01 | 解忧杂货店</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SQLite是一个进程内的库，实现了自给自足的、无服务器的、零配置的、事务性的 SQL 数据库引擎。它是一个零配置的数据库，这意味着与其他数据库一样，您不需要在系统中配置。就像其他数据库，SQLite 引擎不是一个独立的进程，可以按应用程序需求进行静态或动态连接，随连随用。SQLite 直接访问其存储文件。不需要一个单独的服务器进程或操作的系统（无服务器的）。SQLite 不需要配置，这意味着">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SQLite备忘录-01">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/SQLite%E5%A4%87%E5%BF%98%E5%BD%95-01/index.html">
-<meta property="og:site_name" content="解忧杂货店">
-<meta property="og:description" content="SQLite是一个进程内的库，实现了自给自足的、无服务器的、零配置的、事务性的 SQL 数据库引擎。它是一个零配置的数据库，这意味着与其他数据库一样，您不需要在系统中配置。就像其他数据库，SQLite 引擎不是一个独立的进程，可以按应用程序需求进行静态或动态连接，随连随用。SQLite 直接访问其存储文件。不需要一个单独的服务器进程或操作的系统（无服务器的）。SQLite 不需要配置，这意味着">
-<meta property="og:locale">
-<meta property="article:published_time" content="2018-07-29T14:36:38.000Z">
-<meta property="article:modified_time" content="2022-09-18T17:36:09.886Z">
-<meta property="article:author" content="iforvert">
-<meta property="article:tag" content="SQLite">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="解忧杂货店" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
+  
+  <meta name="author" content="iforvert">
+  
+
+  
+  <meta name="description" content="SQLite是一个进程内的库，实现了自给自足的、无服务器的、零配置的、事务性的 SQL 数据库引擎。它是一个零配置的数据库，这意味着与其他数据库一样，您不需要在系统中配置。就像其他数据库，SQLite 引擎不是一个独立的进程，可以按应用程序需求进行静态或动态连接，随连随用。SQLite 直接访问其存储文件。不需要一个单独的服务器进程或操作的系统（无服务器的）。SQLite 不需要配置，这意味着不需要安装或管理。一个完整的 SQLite 数据库是存储在一个单一的跨平台的磁盘文件。SQLite 是非常小的，是轻量级的，完全配置时小于 400KiB，省略可选功能配置时小于250KiB。SQLite 是自给自足的，这意味着不需要任何外部的依赖。SQLite 事务是完全兼容 ACID 的，允许从多个进程或线程安全访问,这个说的是事务，SQLite使用 ANSI-C 编写的，并提供了简单和易于使用的 API，SQLite 可在 UNIX（Linux, Mac OS-X, Android, iOS）和 Windows（Win32, WinCE, WinRT）中运行。SQLite 支持 SQL92（SQL2）标准的大多数查询语言的功能。就是咱们所说的sql语句中的增删改查语法标准。">
+  
+
+  
+  
+  <meta name="keywords" content="SQLite">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="SQLite备忘录-01"/>
+
+  <meta property="og:site_name" content="解忧杂货店"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="解忧杂货店" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 <meta name="generator" content="Hexo 6.3.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">解忧杂货店</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-SQLite备忘录-01" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/29/SQLite%E5%A4%87%E5%BF%98%E5%BD%95-01/" class="article-date">
-  <time datetime="2018-07-29T14:36:38.000Z" itemprop="datePublished">2018-07-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/SQLite/">SQLite</a>
-  </div>
+<div class="blog">
+  <div class="content">
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      SQLite备忘录-01
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">解忧杂货店</a>
     </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>SQLite备忘录-01</span></h3>
+    
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/07/29/SQLite备忘录-01/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-07-29T14:36:38.000Z">
+          2018-07-29
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
       
         <blockquote>
 <p> SQLite是一个进程内的库，实现了<strong>自给自足的</strong>、<strong>无服务器的</strong>、<strong>零配置的</strong>、<strong>事务性的</strong> SQL 数据库引擎。它是一个零配置的数据库，这意味着与其他数据库一样，您不需要在系统中配置。就像其他数据库，SQLite 引擎不是一个独立的进程，可以按应用程序需求进行静态或动态连接，随连随用。SQLite 直接访问其存储文件。不需要一个单独的服务器进程或操作的系统（无服务器的）。SQLite 不需要配置，这意味着不需要安装或管理。一个完整的 SQLite 数据库是存储在一个单一的跨平台的磁盘文件。SQLite 是非常小的，是轻量级的，完全配置时小于 400KiB，省略可选功能配置时小于250KiB。SQLite 是自给自足的，这意味着不需要任何外部的依赖。SQLite 事务是完全兼容 ACID 的，允许从多个进程或线程安全访问,这个说的是事务，SQLite使用 ANSI-C 编写的，并提供了简单和易于使用的 API，SQLite 可在 UNIX（Linux, Mac OS-X, Android, iOS）和 Windows（Win32, WinCE, WinRT）中运行。SQLite 支持 SQL92（SQL2）标准的大多数查询语言的功能。就是咱们所说的sql语句中的增删改查语法标准。</p>
@@ -295,151 +281,61 @@
 <figure class="highlight sql"><figcaption><span>lite</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> column1, column2,.....columnN </span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> [<span class="keyword">condition</span>]</span><br></pre></td></tr></table></figure>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/29/SQLite%E5%A4%87%E5%BF%98%E5%BD%95-01/" data-id="cl890cjl7000ftyw3g335hiiw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQLite/" rel="tag">SQLite</a></li></ul>
 
-    </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/07/29/Masonry%E7%9A%84%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Masonry的日常使用
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/07/29/SQLite%E5%A4%87%E5%BF%98%E5%BD%95-02/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">SQLite备忘录-02</div>
-    </a>
-  
-</nav>
 
-  
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/SQLite/">SQLite</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/SQLite/">SQLite</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
   
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Design-Patterns/">Design Patterns</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OC%E8%AF%AD%E8%A8%80/">OC语言</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQLite/">SQLite</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/lldb/">lldb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/package-manager/">package manager</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vim/">vim</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
-    </div>
-  </div>
-
-
-  
+    &copy; 2022 iforvert
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Behavioral-Pattern/" rel="tag">Behavioral Pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Creational-Pattern/" rel="tag">Creational Pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design-Patterns/" rel="tag">Design Patterns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OC/" rel="tag">OC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/" rel="tag">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/" rel="tag">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks/" rel="tag">Shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Structural-Pattern/" rel="tag">Structural Pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brew/" rel="tag">brew</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fish/" rel="tag">fish</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iTerm2/" rel="tag">iTerm2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lldb/" rel="tag">lldb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/" rel="tag">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ruby/" rel="tag">ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rvm/" rel="tag">rvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Behavioral-Pattern/" style="font-size: 16px;">Behavioral Pattern</a> <a href="/tags/Creational-Pattern/" style="font-size: 14px;">Creational Pattern</a> <a href="/tags/Design-Patterns/" style="font-size: 18px;">Design Patterns</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/OC/" style="font-size: 10px;">OC</a> <a href="/tags/Objective-C/" style="font-size: 20px;">Objective-C</a> <a href="/tags/SQLite/" style="font-size: 12px;">SQLite</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/Structural-Pattern/" style="font-size: 12px;">Structural Pattern</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/brew/" style="font-size: 12px;">brew</a> <a href="/tags/fish/" style="font-size: 10px;">fish</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/iTerm2/" style="font-size: 10px;">iTerm2</a> <a href="/tags/lldb/" style="font-size: 10px;">lldb</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/rvm/" style="font-size: 10px;">rvm</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 10px;">二叉树</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/07/27/UML-%E7%B1%BB%E5%9B%BE/">UML-类图</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/26/vim%E5%A4%87%E5%BF%98%E5%BD%95/">vim备忘录</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/04/%E6%97%A5%E5%B8%B8%E9%9B%B6%E9%9B%B6%E7%A2%8E/">日常零零碎</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/30/Masonry%E8%AF%BB%E5%90%8E%E6%84%9F/">Masonry读后感</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/29/Docker%20%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B(%E6%91%98)/">Docker 入门教程(摘)</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 iforvert<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+  </p>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
+    
   </div>
+</div>
 </body>
 </html>
