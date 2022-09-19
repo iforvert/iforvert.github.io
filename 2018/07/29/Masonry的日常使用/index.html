@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一. 使用baseline 1234567&#x2F;&#x2F; 自定义view中:#pragma mark - Override&#x2F;&#x2F; 返回自定义的baseline的view- (UIView *)viewForBaselineLayout &amp;#123;    return _baseView;&amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Masonry的日常使用">
+<meta property="og:url" content="http://yoursite.com/2018/07/29/Masonry%E7%9A%84%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="解忧杂货店">
+<meta property="og:description" content="一. 使用baseline 1234567&#x2F;&#x2F; 自定义view中:#pragma mark - Override&#x2F;&#x2F; 返回自定义的baseline的view- (UIView *)viewForBaselineLayout &amp;#123;    return _baseView;&amp;#125;">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-07-29T14:36:38.000Z">
+<meta property="article:modified_time" content="2022-09-18T17:36:09.885Z">
+<meta property="article:author" content="iforvert">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Objective-C">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2018/07/29/Masonry%E7%9A%84%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Masonry的日常使用 | 解忧杂货店</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">解忧杂货店</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/29/Masonry%E7%9A%84%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="iforvert">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="解忧杂货店">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Masonry的日常使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-07-29 22:36:38" itemprop="dateCreated datePublished" datetime="2018-07-29T22:36:38+08:00">2018-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-09-19 01:36:09" itemprop="dateModified" datetime="2022-09-19T01:36:09+08:00">2022-09-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>一. 使用baseline</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义view中:</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> mark - Override</span></span><br><span class="line"><span class="comment">// 返回自定义的baseline的view</span></span><br><span class="line">- (<span class="built_in">UIView</span> *)viewForBaselineLayout </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> _baseView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// item1&amp;item2&amp;item3 : 是上面自定义View的对象</span></span><br><span class="line">[item1 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.left.mas_equalTo(<span class="keyword">self</span>.view.mas_left).with.offset(<span class="number">8</span>);</span><br><span class="line">    make.top.mas_equalTo(<span class="keyword">self</span>.view.mas_top).with.offset(<span class="number">200</span>);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跟第一个item的baseline对齐</span></span><br><span class="line">[item2 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.left.mas_equalTo(item1.mas_right).with.offset(<span class="number">10</span>);</span><br><span class="line">    make.baseline.mas_equalTo(item1.mas_baseline);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跟第一个item的baseline对齐</span></span><br><span class="line">[item3 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.left.mas_equalTo(item2.mas_right).with.offset(<span class="number">10</span>);</span><br><span class="line">    make.baseline.mas_equalTo(item1.mas_baseline);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+
+<p>二. 在屏幕边缘控件布局技巧</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注释掉这个宏定义，就直接使用length值做约束，否则的话，使用新的mas_topLayoutGuide和mas_bottomLayoutGuide</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> NEW_FEATURE</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- (void)updateViewConstraints </span><br><span class="line">&#123;</span><br><span class="line">	#ifndef NEW_FEATURE</span><br><span class="line">    // 根据新的length值更新约束</span><br><span class="line">    [_topView mas_updateConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        // 直接利用其length属性，避免iOS、SDK版本升级后topLayoutGuide不再是UIView</span><br><span class="line">        make.top.equalTo(self.view.mas_top).with.offset(self.topLayoutGuide.length);</span><br><span class="line">        NSLog(@&quot;[updateViewConstraints] top: %g&quot;, self.topLayoutGuide.length);</span><br><span class="line">    &#125;];</span><br><span class="line">    // 根据新的length值更新约束</span><br><span class="line">    [_bottomView mas_updateConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        // 直接利用其length属性，避免iOS、SDK版本升级后topLayoutGuide不再是UIView</span><br><span class="line">        make.bottom.equalTo(self.view.mas_bottom).with.offset(-(self.bottomLayoutGuide.length));</span><br><span class="line">        NSLog(@&quot;[updateViewConstraints] bottom: %g&quot;, self.bottomLayoutGuide.length);</span><br><span class="line">    &#125;];</span><br><span class="line">	#endif</span><br><span class="line">    [super updateViewConstraints];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方式一. 直接使用UIViewController的topLayoutGuide.length</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[_topView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.height.equalTo(@40);</span><br><span class="line">    make.left.and.right.equalTo(self.view);  </span><br><span class="line">&#125;];</span><br><span class="line">[_bottomView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.height.equalTo(@40);</span><br><span class="line">    make.left.and.right.equalTo(self.view);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+
+<p>方式二. 使用mas_topLayoutGuide和mas_bottomLayoutGuide </p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[_topView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.height.equalTo(@<span class="number">40</span>);</span><br><span class="line">    make.left.and.right.equalTo(<span class="keyword">self</span>.view);</span><br><span class="line">    make.top.equalTo(<span class="keyword">self</span>.mas_topLayoutGuide);</span><br><span class="line">&#125;];</span><br><span class="line">[_bottomView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.height.equalTo(@<span class="number">40</span>);</span><br><span class="line">    make.left.and.right.equalTo(<span class="keyword">self</span>.view);</span><br><span class="line">    make.bottom.equalTo(<span class="keyword">self</span>.mas_bottomLayoutGuide);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+
+<p>三. UITabview cell height 计算方式</p>
+<p>方式一. iOS 8 的Self-sizing特性 </p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_tableView.estimatedRowHeight = <span class="number">80.0</span>f;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath </span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">UITableViewAutomaticDimension</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方式二. 调用systemLayoutSizeFittingSize:获取高度.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath </span><br><span class="line">&#123;</span><br><span class="line">    if (!_templateCell) </span><br><span class="line">    &#123;</span><br><span class="line">        _templateCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([Case4Cell class])];</span><br><span class="line">    &#125;</span><br><span class="line">    // 获取对应的数据</span><br><span class="line">    Case4DataEntity *dataEntity = _data[(NSUInteger) indexPath.row];</span><br><span class="line">    // 判断高度是否已经计算过</span><br><span class="line">    if (dataEntity.cellHeight &lt;= 0) </span><br><span class="line">    &#123;</span><br><span class="line">        // 填充数据</span><br><span class="line">        [_templateCell setupData:dataEntity];</span><br><span class="line">        // 根据当前数据，计算Cell的高度，注意+1</span><br><span class="line">        dataEntity.cellHeight = [_templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 0.5f;</span><br><span class="line">        NSLog(@&quot;Calculate: %ld, height: %g&quot;, (long) indexPath.row, dataEntity.cellHeight);</span><br><span class="line">    &#125;</span><br><span class="line">    else </span><br><span class="line">    &#123;</span><br><span class="line">        NSLog(@&quot;Get cache: %ld, height: %g&quot;, (long) indexPath.row, dataEntity.cellHeight);</span><br><span class="line">    &#125;</span><br><span class="line">    return dataEntity.cellHeight;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意: 计算UILabel的preferredMaxLayoutWidth值，多行时必须设置这个值，否则系统无法决定Label的宽度 </p>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGFloat</span> preferredMaxWidth = [<span class="built_in">UIScreen</span> mainScreen].bounds.size.width - <span class="number">44</span> - <span class="number">4</span> * <span class="number">3</span>;</span><br><span class="line">_contentLabel.preferredMaxLayoutWidth = preferredMaxWidth; </span><br><span class="line"><span class="comment">// 这行是为了让Label中的内容全部展示</span></span><br><span class="line">[_contentLabel setContentHuggingPriority:<span class="built_in">UILayoutPriorityRequired</span> forAxis:<span class="built_in">UILayoutConstraintAxisVertical</span>];</span><br></pre></td></tr></table></figure>
+
+<p>四. 确定当前ViewController显示的范围</p>
+<p>方式1. 直接使用length值做约束 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[_topView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.height.equalTo(@40);</span><br><span class="line">    make.left.and.right.equalTo(self.view);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">[_bottomView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.height.equalTo(@40);</span><br><span class="line">    make.left.and.right.equalTo(self.view);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">// handler called updateViewConstraints</span><br><span class="line"></span><br><span class="line">- (void)updateViewConstraints</span><br><span class="line">&#123;</span><br><span class="line">    // 根据新的length值更新约束</span><br><span class="line">    [_topView mas_updateConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        // 直接利用其length属性，避免iOS、SDK版本升级后topLayoutGuide不再是UIView</span><br><span class="line">        make.top.equalTo(self.view.mas_top).with.offset(self.topLayoutGuide.length);</span><br><span class="line">        NSLog(@&quot;[updateViewConstraints] top: %g&quot;, self.topLayoutGuide.length);</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    // 根据新的length值更新约束</span><br><span class="line">    [_bottomView mas_updateConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        // 直接利用其length属性，避免iOS、SDK版本升级后topLayoutGuide不再是UIView</span><br><span class="line">        make.bottom.equalTo(self.view.mas_bottom).with.offset(-(self.bottomLayoutGuide.length));</span><br><span class="line">        NSLog(@&quot;[updateViewConstraints] bottom: %g&quot;, self.bottomLayoutGuide.length);</span><br><span class="line">    &#125;];</span><br><span class="line">    [super updateViewConstraints];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方式2. 使用新的mas_topLayoutGuide和mas_bottomLayoutGuide </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[_topView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.height.equalTo(@40);</span><br><span class="line">    make.left.and.right.equalTo(self.view);</span><br><span class="line">    make.top.equalTo(self.mas_topLayoutGuide);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">[_bottomView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.height.equalTo(@40);</span><br><span class="line">    make.left.and.right.equalTo(self.view);</span><br><span class="line">    make.bottom.equalTo(self.mas_bottomLayoutGuide);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">// Event called  updateViewConstraints (可选)</span><br><span class="line"></span><br><span class="line">- (void)updateViewConstraints</span><br><span class="line">&#123;</span><br><span class="line">    [super updateViewConstraints];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>五. 引用MASConstraint</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// one : 创建一个引用</span><br><span class="line">@property (strong, nonatomic) MASConstraint *constraint;</span><br><span class="line">// two : 赋值</span><br><span class="line">[view mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.left.and.right.equalTo(self.view);</span><br><span class="line">    make.top.equalTo(self.mas_topLayoutGuideBottom);</span><br><span class="line">    _constraint = make.height.equalTo(@(value ...));</span><br><span class="line">&#125;];</span><br><span class="line">// three : 更新约束的值</span><br><span class="line">_constraint.equalTo(@(ohter value...));</span><br></pre></td></tr></table></figure>
+
+<p>此外还可以这么操作:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 卸载这根儿约束</span><br><span class="line">[_constraint uninstall];</span><br><span class="line">// 在把这根儿约束填上</span><br><span class="line">[_constraint install];</span><br></pre></td></tr></table></figure>
+
+<p>更新UITabelViewCell的高度的两种方式:</p>
+<ol>
+<li>刷新方法1</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只会重新计算高度,不会reload cell,所以只是把原来的cell撑大了而已,还是同一个cell实例</span></span><br><span class="line">[_tableView beginUpdates];</span><br><span class="line">[_tableView endUpdates];</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>刷新方法2</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 先重新计算高度,然后reload,不是原来的cell实例</span><br><span class="line">[_tableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationFade];</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>最后还可以通过下面的方式来展示更新的效果</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[_tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionMiddle animated:YES];</span><br></pre></td></tr></table></figure>
+
+<p>六. 巧用优先级保证内容可见</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// _containerView 中包含了一个 支持滑动的_tipLabel</span><br><span class="line">// step one : </span><br><span class="line">[_tipLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    // 设置边界条件约束，保证内容可见，优先级1000</span><br><span class="line">    make.left.greaterThanOrEqualTo(_containerView.mas_left);</span><br><span class="line">    make.right.lessThanOrEqualTo(_containerView.mas_right);</span><br><span class="line">    make.top.greaterThanOrEqualTo(_containerView.mas_top);</span><br><span class="line">    make.bottom.lessThanOrEqualTo(_containerView.mas_bottom);</span><br><span class="line">	// 优先级要比边界条件低750</span><br><span class="line">    _leftConstraint = make.centerX.equalTo(_containerView.mas_left).with.offset(50).priorityHigh();</span><br><span class="line">    // 优先级要比边界条件低750</span><br><span class="line">    _topConstraint = make.centerY.equalTo(_containerView.mas_top).with.offset(50).priorityHigh(); </span><br><span class="line">    make.width.mas_equalTo(CGRectGetWidth(_tipLabel.frame) + 8);</span><br><span class="line">    make.height.mas_equalTo(CGRectGetHeight(_tipLabel.frame) + 4);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">// setp two </span><br><span class="line">UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panWithGesture:)];</span><br><span class="line">[_containerView addGestureRecognizer:pan];</span><br><span class="line"></span><br><span class="line">// setp three</span><br><span class="line">- (void)panWithGesture:(UIPanGestureRecognizer *)pan </span><br><span class="line">&#123;</span><br><span class="line">    CGPoint touchPoint = [pan locationInView:_containerView];</span><br><span class="line">    _logLabel.text = NSStringFromCGPoint(touchPoint);</span><br><span class="line">    _leftConstraint.offset = touchPoint.x;</span><br><span class="line">    _topConstraint.offset = touchPoint.y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>七. 约束生效时机(以动画为例)</p>
+<p>创建一个承载改变约束的视图View</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, strong) UILabel *animationLabel;</span><br></pre></td></tr></table></figure>
+
+<p>设置最初的位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 有个引用约束的前提</span><br><span class="line">@property (nonatomic, strong) MASConstraint *centerXConstraint;</span><br><span class="line">// 设置最初的位置</span><br><span class="line">[_animationLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.width.equalTo(@(200));</span><br><span class="line">    make.height.equalTo(@(40));</span><br><span class="line">    _centerXConstraint = make.centerX.equalTo(self.view.mas_centerX);</span><br><span class="line">    make.centerY.equalTo(self.view.mas_centerY);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+
+<p>核心, 查看约束生效时机带来的动画效果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (void)action:(id)sender </span><br><span class="line">&#123;</span><br><span class="line">    // 设置初始状态</span><br><span class="line">    _centerXConstraint.equalTo(@(-CGRectGetWidth(self.view.frame)));</span><br><span class="line">    // 立即让约束生效</span><br><span class="line">    [self.view layoutIfNeeded];</span><br><span class="line">    </span><br><span class="line">    // 设置动画约束</span><br><span class="line">    _centerXConstraint.equalTo(@0);</span><br><span class="line">    // 动画生效</span><br><span class="line">    [UIView animateWithDuration:0.3f animations:^&#123;</span><br><span class="line">        [self.view layoutIfNeeded];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+              <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/07/29/SQLite%E5%A4%87%E5%BF%98%E5%BD%95-02/" rel="prev" title="SQLite备忘录-02">
+      <i class="fa fa-chevron-left"></i> SQLite备忘录-02
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/07/29/Docker%20%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B(%E6%91%98)/" rel="next" title="Docker 入门教程(摘)">
+      Docker 入门教程(摘) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="iforvert"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">iforvert</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/iforvert" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iforvert" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:iforvert@gmail.com" title="E-Mail → mailto:iforvert@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iforvert</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

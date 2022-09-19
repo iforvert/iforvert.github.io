@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一. 打开Mac OSX原生的读写NTFS功能  插上磁盘打开终端, 输入一下命令:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常零零碎">
+<meta property="og:url" content="http://yoursite.com/2020/07/04/%E6%97%A5%E5%B8%B8%E9%9B%B6%E9%9B%B6%E7%A2%8E/index.html">
+<meta property="og:site_name" content="解忧杂货店">
+<meta property="og:description" content="一. 打开Mac OSX原生的读写NTFS功能  插上磁盘打开终端, 输入一下命令:">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-07-04T13:55:42.000Z">
+<meta property="article:modified_time" content="2022-09-18T17:36:09.890Z">
+<meta property="article:author" content="iforvert">
+<meta property="article:tag" content="Objective-C">
+<meta property="article:tag" content="Mac">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/07/04/%E6%97%A5%E5%B8%B8%E9%9B%B6%E9%9B%B6%E7%A2%8E/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>日常零零碎 | 解忧杂货店</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">解忧杂货店</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/04/%E6%97%A5%E5%B8%B8%E9%9B%B6%E9%9B%B6%E7%A2%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="iforvert">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="解忧杂货店">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          日常零零碎
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-04 21:55:42" itemprop="dateCreated datePublished" datetime="2020-07-04T21:55:42+08:00">2020-07-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-09-19 01:36:09" itemprop="dateModified" datetime="2022-09-19T01:36:09+08:00">2022-09-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>一. 打开<strong>Mac OSX</strong>原生的读写<strong>NTFS</strong>功能 </p>
+<p>插上磁盘打开终端, 输入一下命令:</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">diskutil list</span><br><span class="line">sudo nano /etc/fstab</span><br><span class="line">LABEL=Elements none ntfs rw,auto,nobrowse</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>重启</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /Volumes/lj ~/Desktop/lj</span><br></pre></td></tr></table></figure>
+
+<p>二. 打开允许所有来源: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo spctl --master-enable</span><br></pre></td></tr></table></figure>
+
+<p>三. Mac 隐显文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示隐藏文件</span></span><br><span class="line">$ defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder</span><br><span class="line"><span class="comment"># 不显示隐藏文件</span></span><br><span class="line">$ defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder</span><br></pre></td></tr></table></figure>
+
+<p>四. chisel使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install chisel</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">touch</span> .lldbinit </span><br><span class="line">$ open .lldbinit </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># ~/.lldbinit</span><br><span class="line">...</span><br><span class="line">command script import /usr/local/opt/chisel/libexec/fblldb.py</span><br></pre></td></tr></table></figure>
+
+<p>or </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># ~/.lldbinit</span><br><span class="line">...</span><br><span class="line">command script import /path/to/fblldb.py</span><br></pre></td></tr></table></figure>
+
+<p>五. 打印Model</p>
+<ol>
+<li>创建一个BaseModel</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">- (NSString *)debugDescription</span><br><span class="line">&#123;</span><br><span class="line">    //声明一个字典</span><br><span class="line">    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];</span><br><span class="line">    </span><br><span class="line">    //得到当前class的所有属性</span><br><span class="line">    uint count;</span><br><span class="line">    objc_property_t *properties = class_copyPropertyList([self class], &amp;count);</span><br><span class="line">    </span><br><span class="line">    //循环并用KVC得到每个属性的值</span><br><span class="line">    for (int i = 0; i&lt;count; i++) &#123;</span><br><span class="line">        objc_property_t property = properties[i];</span><br><span class="line">        NSString *name = @(property_getName(property));</span><br><span class="line">        id value = [self valueForKey:name]?:@&quot;nil&quot;;//默认值为nil字符串</span><br><span class="line">        [dictionary setObject:value forKey:name];//装载到字典里</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //释放</span><br><span class="line">    free(properties);</span><br><span class="line">    </span><br><span class="line">    NSString *desc = [NSString stringWithFormat:@&quot;&lt;%@-%p&gt; -- %@&quot;,[self class],self,dictionary];</span><br><span class="line">    desc = [NSString stringWithCString:[desc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];</span><br><span class="line">    return desc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>目标model</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (NSString *)description</span><br><span class="line">&#123;</span><br><span class="line">    return [super debugDescription];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>打印</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2018</span><span class="number">-08</span><span class="number">-26</span> <span class="number">00</span>:<span class="number">18</span>:<span class="number">44.008746</span>+<span class="number">0800</span> DebugDescriptionDemo[<span class="number">6390</span>:<span class="number">45917</span>] &lt;TestModel<span class="number">-0x100506560</span>&gt; -- &#123;</span><br><span class="line">    index = <span class="number">1</span>;</span><br><span class="line">    text = <span class="string">&quot;降龙十八掌&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">Program ended with exit code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>六. edgesForExtendedLayout的使用</p>
+<p>视图顶部高度</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@property(nonatomic, assign) UIRectEdge edgesForExtendedLayout;</span><br><span class="line">Description	</span><br><span class="line">The edges that you extend for your view controller.</span><br><span class="line">Instead of this property, use the safe area of your view to determine which parts of your interface are occluded by other content. For more information, see the safeAreaLayoutGuide and safeAreaInsets properties of UIView.</span><br><span class="line">In iOS 10 and earlier, use this property to report which edges of your view controller extend underneath navigation bars or other system-provided views. The default value of this property is UIRectEdgeAll, and it is recommended that you do not change that value.</span><br><span class="line">If you remove an edge value from this property, the system does not lay out your content underneath other bars on that same edge. In addition, the system provides a default background so that translucent bars have an appropriate appearance. The window’s root view controller does not react to this property.</span><br><span class="line">SDKs	iOS 7.0+, tvOS 9.0+</span><br></pre></td></tr></table></figure>
+
+<p>七. Mac无法上网, 清除网络配置文件</p>
+<ol>
+<li><p>打开一下路劲</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/资源库/Preferences/SystemConfiguration/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除文件</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">com.apple.airport.preferences.plist</span><br><span class="line">com.apple.network.identification.plist</span><br><span class="line">NetworkInterfaces.plist</span><br><span class="line">preferences.plist</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清空废纸篓</p>
+</li>
+<li><p>重启</p>
+</li>
+</ol>
+<p>八. Mac U盘装系统</p>
+<ol>
+<li><p>打开App Store 下载系统(以EI Capition为例)</p>
+</li>
+<li><p>插入U盘并且更改U盘名称(123为例)</p>
+</li>
+<li><p>打开终端输入</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/123 --applicationpath /Applications/Install\ OS\ X\ El\ Capitan.app</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /Applications/macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/123 --applicationpath /Applications/macOS\ High\ Sierra.app</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>输入管理员密码</p>
+</li>
+<li><p>输入y</p>
+</li>
+<li><p>最后等待,启动盘制作成功</p>
+</li>
+<li><p>重启,按住Option不松手,启动之后看到U盘，点击继续，点击“磁盘工具”抹掉全部的磁盘 （**一定要记得合并成1个分区，有多个分区是无法安装成功的）然后关闭，回到实用工具的界面，点击“重新安装OS X”覆盖掉目前的磁盘就可以。</p>
+</li>
+<li><p>如果有卡在最后一秒的界面，也别急，最长可能也需要30分钟。就接着电源放着等待就可以了。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
+              <a href="/tags/Mac/" rel="tag"># Mac</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/07/30/Masonry%E8%AF%BB%E5%90%8E%E6%84%9F/" rel="prev" title="Masonry读后感">
+      <i class="fa fa-chevron-left"></i> Masonry读后感
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/26/vim%E5%A4%87%E5%BF%98%E5%BD%95/" rel="next" title="vim备忘录">
+      vim备忘录 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="iforvert"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">iforvert</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/iforvert" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iforvert" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:iforvert@gmail.com" title="E-Mail → mailto:iforvert@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iforvert</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
